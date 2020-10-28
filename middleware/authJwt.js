@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/db.config.js");
+const config = require("../config/auth.config.js");
 const db = require("../models");
 const User = db.user;
 
@@ -15,7 +15,7 @@ verifyToken = (req, res, next) => {
     jwt.verify(token, config.secret, (err, decoded) => {
         if (err) {
             return res.status(401).send({
-                message: "Unauthorised -> Sin Permiso !"+ token+" "+ 
+                message: "Unauthorised -> Sin Permiso !" 
             });
         }
         req.userId = decoded.id;
@@ -30,9 +30,11 @@ isAdmin = (req, res, next) => {
                 .then(roles => {
                     for (let i = 0; i < roles.length; i++) {
                         if (roles[i].name === "admin") {
+                            console.log('rolAdmin: ' + roles[i].name);
                             next();
                             return;
                         }
+                        
                     }
                     res.status(403).send({
                         message: "Require Admin Role"
@@ -48,7 +50,7 @@ isModerator = (req, res, next) => {
             user.getRoles()
                 .then(roles => {
                     for (let i = 0; i < roles.length; i++) {
-                        if (roles[i].name === "moderator") {
+                        if (roles[i].name == "mod") {
                             next();
                             return;
                         }
@@ -66,7 +68,7 @@ isModeratorOrAdmin = (req, res, next) => {
             user.getRoles()
                 .then(roles => {
                     for (let i = 0; i < roles.length; i++) {
-                        if (roles[i].name === "moderator") {
+                        if (roles[i].name === "mod") {
                             next();
                             return;
                         }
