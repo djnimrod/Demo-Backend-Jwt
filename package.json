@@ -2,12 +2,13 @@
   "name": "app",
   "version": "1.0.0",
   "description": "Node.js Demo for JWT authentication ",
+  "main": "server.js",
   "engines": {
     "node": "8.x"
   },
-  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [
     "node.js",
