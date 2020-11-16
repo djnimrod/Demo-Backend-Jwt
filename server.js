@@ -12,7 +12,7 @@ db.sequelize.sync();
 
 var corsOptions = {
     origin: "http:localhost:4200"
-}
+};
 // para pruebas se puede insertar manualmente
 /*
 const Role = db.role;
@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "welcome to DajDev  Jwt Application." });
+    res.json({ message: "welcome to DajDev Jwt Application." });
 });
 // routes
 require('./routes/auth.routes')(app);
@@ -53,4 +53,4 @@ require('./routes/user.routes')(app);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}.`);
-})
+});
