@@ -10,10 +10,10 @@ var corsOptions = {
 // variables para la db
 const db = require("../node-js-jwt-auth/models");
 // para produccion usar solo sync() , e insertar manualmente 
-db.sequelize.sync();
+//db.sequelize.sync();
 
 // para pruebas se puede insertar manualmente
-/*
+// /*
 const Role = db.role;
 db.sequelize.sync({ force: true }).then(() => {
     console.log("Drop and Resync Db");
@@ -34,7 +34,7 @@ function initial() {
         name: "admin"
     });
 };
-*/
+//*/
 app.use(cors(corsOptions))
 // parse request of content-type - application/json
 app.use(bodyParser.json());
@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "welcome to DajDev Application." });
+    res.json({ message: "welcome to DajDev  Jwt Application." });
 });
 // routes
 require('./routes/auth.routes')(app);
