@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "welcome to DajDev Jwt Application." });
+    res.json({ message: "welcome to DajDev Jwt-Heroku Application." });
 });
 // routes
 require('./routes/auth.routes')(app);
