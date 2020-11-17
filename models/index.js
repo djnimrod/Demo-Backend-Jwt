@@ -8,6 +8,13 @@ const sequelize = new Sequelize(
     {
         host: config.HOST,
         dialect: config.dialect,
+        ssl:true,
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false // <<<<<<< YOU NEED THIS
+            }
+          },
         operatorsAliases: 0,
 
         pool: {

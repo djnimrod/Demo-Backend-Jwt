@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
                             res.send({
                                 message: "User was registered successfully"
                             });
-                        });
+                        }); return;
                 });
             } else {
                 //user role = 1
@@ -48,7 +48,7 @@ exports.signup = (req, res) => {
         });
 };
 
-exports.signin = (req, res) => {
+exports.signin = (req, res) => {   
     User.findOne({
         where: {
             username: req.body.username
