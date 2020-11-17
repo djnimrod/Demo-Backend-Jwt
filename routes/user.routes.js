@@ -8,6 +8,7 @@ module.exports = function (app) {
             "x-access-token, Origin, Content-Type, Accept"
         );
         next();
+        return;
     });
     
     app.get("/api/test/all", controller.allAccess);

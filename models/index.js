@@ -1,6 +1,6 @@
-const config = require("../config/db.config.js");
+const config = require('../config/db.config.js');
 
-const Sequelize = require("sequelize");
+const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
     config.DB,
     config.USER, 
@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
     {
         host: config.HOST,
         dialect: config.dialect,
-        operatorsAliases: false,
+        operatorsAliases: 0,
 
         pool: {
             max: config.pool.max,

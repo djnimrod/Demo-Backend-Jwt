@@ -10,9 +10,6 @@ const db = require("../node-js-jwt-auth/models");
 // para produccion usar solo sync() , e insertar manualmente 
 db.sequelize.sync();
 
-var corsOptions = {
-    origin: "http:localhost:4200"
-};
 // para pruebas se puede insertar manualmente
 /*
 const Role = db.role;
@@ -36,6 +33,11 @@ function initial() {
     });
 };
 */
+
+var corsOptions = {
+    origin: "http://localhost:4200"
+};
+
 app.use(cors(corsOptions));
 // parse request of content-type - application/json
 app.use(bodyParser.json());
@@ -50,7 +52,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
 //set port, listen for request 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4200;
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}.`);
 });
