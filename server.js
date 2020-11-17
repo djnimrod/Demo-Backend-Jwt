@@ -52,7 +52,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
 //set port, listen for request 
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}.`);
 });
