@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 // variables para la db
-const db = require("../node-js-jwt-auth/models");
+const db = require("./models");
 
 // para produccion usar solo sync() , e insertar manualmente 
 db.sequelize.sync();
