@@ -35,7 +35,7 @@ function initial() {
 */
 
 var corsOptions = {
-    origin: "http://localhost:4200"
+    origin: "https://angular-jwt-frontend.herokuapp.com"
 };
 
 app.use(cors(corsOptions));
