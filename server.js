@@ -1,13 +1,13 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
 // variables para la db
-const db = require("./models");
+const db = require('./models');
 
-// para produccion usar solo sync() , e insertar manualmente 
+// para produccion usar solo sync() , e insertar manualmente
 db.sequelize.sync();
 
 // para pruebas se puede insertar manualmente
@@ -33,9 +33,24 @@ function initial() {
     });
 };
 */
+// configuracion cors para local en puerto 3500
 
-var corsOptions = {
+/*var corsOptions = {
 origin: "http://localhost:3500"
+};*/
+
+var whitelist = [
+  'http://localhost:3500',
+  'https://angular-jwt-frontend.herokuapp.com',
+];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
 };
 
 app.use(cors(corsOptions));
@@ -44,15 +59,15 @@ app.use(bodyParser.json());
 //parse request of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 // simple route
-app.get("/", (req, res) => {
-    res.json({ message: "welcome to DajDev Jwt-Heroku Application." });
+app.get('/', (req, res) => {
+  res.json({ message: 'welcome to DajDev Jwt-Heroku Application.' });
 });
 // routes
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-//set port, listen for request 
+//set port, listen for request
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`server is running on port ${PORT}.`);
+  console.log(`server is running on port ${PORT}.`);
 });
