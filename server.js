@@ -35,23 +35,11 @@ function initial() {
 */
 // configuracion cors para local en puerto 3500
 
-/*var corsOptions = {
-origin: "http://localhost:3500"
-};*/
-
-var whitelist = [
-  'http://localhost:3500',
-  'https://angular-jwt-frontend.herokuapp.com',
-];
+// /*
 var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'http://localhost:3500',
 };
+// */
 
 app.use(cors(corsOptions));
 // parse request of content-type - application/json
