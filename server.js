@@ -40,6 +40,7 @@ var corsOptions = {
   origin: 'https://angular-jwt-frontend.herokuapp.com',
 };
 // */
+/*
 const csp = require('express-csp-header');
 app.use(
   csp({
@@ -49,6 +50,7 @@ app.use(
     },
   })
 );
+*/
 app.use(cors(corsOptions));
 // parse request of content-type - application/json
 app.use(bodyParser.json());
