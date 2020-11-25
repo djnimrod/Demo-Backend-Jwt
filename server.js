@@ -39,18 +39,7 @@ function initial() {
 var corsOptions = {
   origin: 'https://angular-jwt-frontend.herokuapp.com',
 };
-// */
-/*
-const csp = require('express-csp-header');
-app.use(
-  csp({
-    policies: {
-      'default-src': [csp.NONE],
-      'img-src': [csp.SELF],
-    },
-  })
-);
-*/
+
 app.use(cors(corsOptions));
 // parse request of content-type - application/json
 app.use(bodyParser.json());
