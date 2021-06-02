@@ -37,7 +37,8 @@ function initial() {
 
 // /*
 var corsOptions = {
-  origin: 'https://angular-jwt-frontend.herokuapp.com',
+  //origin: 'https://angular-jwt-frontend.herokuapp.com',
+  origin: 'http://localhost:3000',
 };
 
 app.use(cors(corsOptions));
